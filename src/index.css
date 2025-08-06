@@ -265,4 +265,72 @@ body {
       }
     }
   }
+
+  #menu {
+    @apply relative radial-gradient min-h-dvh w-full px-5 py-20 mt-0 md:mt-40 2xl:px-0;
+
+    #m-left-leaf {
+      @apply object-contain absolute -bottom-20 left-0 w-1/3 md:w-fit;
+    }
+
+    #m-right-leaf {
+      @apply object-contain absolute -top-40 right-0 w-1/4 md:w-fit;
+    }
+
+    .cocktail-tabs {
+      @apply relative grid grid-cols-2 md:grid-cols-4 z-10 gap-10 md:gap-20 mb-20 sm:mb-32 md:max-w-6xl md:mx-auto;
+
+      button {
+        @apply text-xl md:text-3xl font-modern-negra cursor-pointer pb-2 hover:text-yellow hover:border-yellow border-b-1 transition-colors;
+      }
+    }
+
+    .content {
+      @apply flex flex-col relative justify-between items-center container mx-auto;
+
+      .arrows {
+        @apply flex items-center justify-between w-full absolute;
+
+        button {
+          @apply text-white hover:text-yellow cursor-pointer transition-colors max-w-36;
+
+          span {
+            @apply text-3xl font-modern-negra leading-none hidden md:block;
+          }
+        }
+      }
+    }
+
+    .cocktail {
+      @apply flex-center mt-10;
+    }
+
+    .cocktail img {
+      @apply object-contain h-[60vh];
+    }
+
+    .recipe {
+      @apply flex max-md:flex-col md:items-center justify-between gap-10 w-full lg:absolute  bottom-0;
+
+      .info {
+        @apply space-y-4 pl-48 mb-24 lg:translate-y-20;
+
+        #title {
+          @apply text-3xl md:text-6xl text-yellow max-w-40 font-modern-negra;
+        }
+      }
+
+      .details {
+        @apply space-y-5 text-left md:max-w-md;
+
+        h2 {
+          @apply text-3xl md:text-5xl font-serif;
+        }
+
+        p {
+          @apply md:text-lg pe-5;
+        }
+      }
+    }
+  }
 }
