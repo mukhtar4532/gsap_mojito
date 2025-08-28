@@ -24,6 +24,24 @@ const Menu = () => {
       { yPercent: 100, opacity: 0 },
       { yPercent: 0, opacity: 1, ease: "power1.inOut" }
     );
+
+    const parallaxTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#menu",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+
+    parallaxTimeline
+      .to("#m-left-leaf", { x: -80, y: 50, duration: 1, ease: "power1.inOut" })
+      .to("#m-right-leaf", {
+        x: 50,
+        y: -50,
+        duration: 1,
+        ease: "power1.inOut",
+      });
   }, [currentIndex]);
 
   const totalCocktails = allCocktails.length;
@@ -44,7 +62,6 @@ const Menu = () => {
   const prevCocktail = getCocktailAt(-1);
   const nextCocktail = getCocktailAt(1);
   return (
-    //   aria-labelledby="menu-heading"
     <section id="menu">
       <img
         src="/images/slider-left-leaf.png"
@@ -59,7 +76,6 @@ const Menu = () => {
       <h2 id="menu-heading" className=" sr-only">
         Cocktail menu
       </h2>
-      {/* aria-label="Cocktail Navigation" */}
       <nav className="cocktail-tabs">
         {allCocktails.map((cocktail, index) => {
           const isActive = index === currentIndex;
